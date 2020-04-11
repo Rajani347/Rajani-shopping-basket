@@ -1,6 +1,7 @@
 #This is Shopping cart Python programm
 #By:-
 # Rajani Boggula - DBS
+# Github link - https://github.com/Rajani347/Rajani_shopping_basket_CA2.git
 
 # function to add the product in stock
 def func_stockadd():
