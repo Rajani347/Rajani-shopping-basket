@@ -3,8 +3,8 @@
 # Rajani Boggula - DBS
 # Github link - https://github.com/Rajani347/Rajani_shopping_basket_CA2.git
 
-# function to add the product in stock
-def func_stockadd():
+# function to add the products which are available
+def func_prod_available():
     prod_name = input("Enter the Product name:\n").upper()
     print("Enter the price of the",prod_name,": ")
     price = int(input())
@@ -14,8 +14,8 @@ def func_stockadd():
 
 
 
-# function for updating product in stock
-def func_update():
+# function to update cart with products which are available
+def func_update_prod():
     p = input("Enter the product name you want to update: ").upper()
     ctr=0;
     #searching p in keys of the dictionary
@@ -35,8 +35,8 @@ def func_update():
 
 
 
-# function to remove the product from stock
-def func_stockremove():
+# function to remove the product from the shopping basket
+def func_prodremove():
     r = input("Enter the product to be removed: ").upper()
     ctr=0;
     #searching p in keys of the dictionary
@@ -55,15 +55,15 @@ def func_stockremove():
 
 
 
-# function to view the products in stock
-def func_stockview():
+# function to view available products
+def func_prodview():
     for i in stock.keys():
         print('%-15s: %i'%(i,stock[i]))
 
 
 
 # function to add the product in basket
-def func_bsktadd(cons_pro):
+def func_cartadd(cons_pro):
     print("Enter the quantity of ",cons_pro," to be added: ")
     qty = int(input())
     basket[cons_pro] = qty
@@ -71,14 +71,14 @@ def func_bsktadd(cons_pro):
 
 
 # function to view the products in basket
-def func_bsktview():
+def func_cartview():
     for i in basket.keys():
         print('%-15s: %i'%(i,basket[i]))
 
 
 
-# function to search product in stock
-def func_search() :
+# function to search the products for availablity
+def func_prodsearch() :
     srch = input("Enter the Product to be searched \n").upper()
     if srch in stock.keys():
         print("The product is available \n")
@@ -88,8 +88,8 @@ def func_search() :
 
 
 
-# function to remove product from basket
-def func_bsktremove() :
+# function to remove product from basket or cart
+def func_cartremove() :
     r = input("Enter the product to be removed: ").upper()
     ctr=0;
     #searching p in keys of the dictionary
@@ -108,8 +108,8 @@ def func_bsktremove() :
 
 
 
- # function for billing invoice
-def func_bill_invoice() :
+ # function for bill or invoice
+def func_prod_bill() :
     from datetime import datetime
     now = datetime.now()
     dt_tm = now.strftime("%d/%m/%Y %H:%M:%S")
@@ -141,12 +141,12 @@ if __name__=="__main__":
 
     #Primary infinte loop
     while True:
-        print("1)Admin Module\n2)Consumer Module\n3)End the program\nEnter your choice: ")
+        print("1)Administrator Desk\n2)Customer Desk\n3)End of the shopping\nEnter your choice: ")
         x=int(input())#choice is in x
 
-        #admin module
+        # module for admin
         if x == 1:
-            print("Welcome to the Admin Module\n")
+            print("Welcome to the Administrator Module\n")
 
             #Secondry infinite loop for admin module
             while True:
@@ -167,16 +167,16 @@ if __name__=="__main__":
                 elif n == 4:
                     func_stockview()
                 elif n == 5:
-                    print("Logging out of Admin Module")
+                    print("Logging out of Administrator Module")
                     break
                 else :
                     print("***Invalid input***\t\tTry again\n")
 
 
-        #user module
+        #customer module
         elif x == 2:
             basket={}
-            print("\n\n Dear Costumer\n Welcome! to Consumer module\n")
+            print("\n\n Dear Costumer\n Welcome! to Customer module\n")
             print("-"*100)
             opt_2 = {1:"View All Products in Stock", 2:"Add to Basket", 3:"View All Products in Basket", 4:"Search Product in Stock", 5:"Remove Product from Basket", 6:"Print Invoice", 7: "Sign out"}
             while True :
@@ -231,6 +231,6 @@ if __name__=="__main__":
             print("Closing the shopping cart app")
             break
 
-        #Invalid input
+        #please enter a valid input
         else:
             print("***Invalid input***\t\tTry again\n")
